@@ -1,7 +1,7 @@
 import { HostelCard } from "@/components/HostelCard";
 import { LocationPicker } from "@/components/LocationPicker";
 import { useApp } from "@/contexts/AppContext";
-import { hostels } from "@/data/hostels";
+import { getHostelsByUniversity, hostels } from "@/data/hostels";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { Bell, ChevronDown, MapPin, Search, SlidersHorizontal } from "lucide-react-native";
@@ -19,10 +19,17 @@ export default function HomeScreen() {
   const [query, setQuery] = useState("");
   const [showPicker, setShowPicker] = useState(false);
 
-  const featured = hostels.filter((h) => h.featured);
+  const nearbyHostels = useMemo(
+    () => (location ? getHostelsByUniversity(location.id) : hostels),
+    [location]
+  );
+
+  const featured = nearbyHostels.filter((h) => h.featured);
 
   const filtered = useMemo(() => {
-    return hostels
+    const pool = location ? nearbyHostels : hostels;
+
+    return pool
       .filter((h) => {
         if (activeCategory === "Budget") return h.price <= 6500;
         if (activeCategory === "Premium") return h.price >= 9000;
@@ -33,9 +40,10 @@ export default function HomeScreen() {
       .filter(
         (h) =>
           h.name.toLowerCase().includes(query.toLowerCase()) ||
-          h.location.toLowerCase().includes(query.toLowerCase())
+          h.location.toLowerCase().includes(query.toLowerCase()) ||
+          h.universityName.toLowerCase().includes(query.toLowerCase())
       );
-  }, [activeCategory, query]);
+  }, [activeCategory, query, nearbyHostels, location]);
 
   return (
     <View className="flex-1 bg-background">
@@ -134,7 +142,11 @@ export default function HomeScreen() {
         <View className="px-5 pt-5">
           <View className="flex-row items-center justify-between mb-3">
             <Text className="text-foreground text-lg font-jakarta">
-              {query ? "Search Results" : "Nearby Hostels"}
+              {query
+                ? "Search Results"
+                : location
+                  ? `Hostels near ${location.name}`
+                  : "All Hostels in Kenya"}
             </Text>
             <Text className="text-muted text-sm font-dm-sans">{filtered.length} found</Text>
           </View>

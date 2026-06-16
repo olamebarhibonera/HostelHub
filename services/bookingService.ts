@@ -5,7 +5,7 @@ const bookings: Booking[] = [
   {
     id: "b1",
     userId: "demo",
-    hostelId: "1",
+    hostelId: hostels[0].id,
     hostelName: hostels[0].name,
     hostelImage: hostels[0].image,
     checkInDate: new Date("2026-01-01"),
@@ -20,7 +20,7 @@ const bookings: Booking[] = [
   {
     id: "b2",
     userId: "demo",
-    hostelId: "2",
+    hostelId: hostels[1].id,
     hostelName: hostels[1].name,
     hostelImage: hostels[1].image,
     checkInDate: new Date("2025-07-01"),

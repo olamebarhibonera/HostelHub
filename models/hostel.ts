@@ -1,6 +1,8 @@
 export interface Hostel {
   id: string;
   name: string;
+  universityId: number;
+  universityName: string;
   price: number;
   location: string;
   rating: number;

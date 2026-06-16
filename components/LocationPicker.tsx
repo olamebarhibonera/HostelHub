@@ -45,7 +45,7 @@ function LocationRow({
           {loc.name}
         </Text>
         <Text className="text-muted text-xs font-dm-sans">
-          {loc.city}, {loc.country}
+          {loc.city}{loc.county ? `, ${loc.county}` : ""} · {loc.type ?? "University"}
         </Text>
       </View>
       {selected ? (
@@ -65,11 +65,19 @@ export function LocationPicker({ visible, current, onSelect, onClose }: Props) {
         (l) =>
           l.name.toLowerCase().includes(query.toLowerCase()) ||
           l.city.toLowerCase().includes(query.toLowerCase()) ||
+          l.county?.toLowerCase().includes(query.toLowerCase()) ||
           l.country.toLowerCase().includes(query.toLowerCase())
       )
     : allLocations;
 
   const recents = allLocations.filter((l) => recentLocationIds.includes(l.id));
+
+  const groupedByCounty = filtered.reduce<Record<string, Location[]>>((acc, loc) => {
+    const key = loc.county ?? loc.city;
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(loc);
+    return acc;
+  }, {});
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
@@ -129,16 +137,11 @@ export function LocationPicker({ visible, current, onSelect, onClose }: Props) {
               </View>
             )}
 
-            {!query && (
-              <Text className="text-muted text-xs font-dm-sans-medium uppercase tracking-wider mb-2">
-                All Universities
-              </Text>
-            )}
             {filtered.length === 0 ? (
               <Text className="text-center py-10 text-muted font-dm-sans">
                 No universities found for "{query}"
               </Text>
-            ) : (
+            ) : query ? (
               filtered.map((loc) => (
                 <LocationRow
                   key={loc.id}
@@ -147,6 +150,24 @@ export function LocationPicker({ visible, current, onSelect, onClose }: Props) {
                   onSelect={onSelect}
                 />
               ))
+            ) : (
+              Object.entries(groupedByCounty)
+                .sort(([a], [b]) => a.localeCompare(b))
+                .map(([county, locs]) => (
+                  <View key={county} className="mb-4">
+                    <Text className="text-muted text-xs font-dm-sans-medium uppercase tracking-wider mb-2">
+                      {county} ({locs.length})
+                    </Text>
+                    {locs.map((loc) => (
+                      <LocationRow
+                        key={loc.id}
+                        loc={loc}
+                        selected={current?.id === loc.id}
+                        onSelect={onSelect}
+                      />
+                    ))}
+                  </View>
+                ))
             )}
           </ScrollView>
         </Pressable>

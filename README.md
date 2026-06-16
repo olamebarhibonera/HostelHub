@@ -37,10 +37,12 @@ cd HostelHub
 npm install
 ```
 
+> If `npm install` fails with peer dependency errors, the project includes `.npmrc` with `legacy-peer-deps=true` to handle React 19 compatibility.
+
 ### Run
 
 ```bash
-npm start
+npx expo start -c
 ```
 
 Then press `a` for Android emulator, `i` for iOS simulator, or scan the QR code with Expo Go.

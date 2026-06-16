@@ -3,7 +3,6 @@ import { AppProvider } from "@/contexts/AppContext";
 import {
   DMSans_400Regular,
   DMSans_500Medium,
-  DMSans_600SemiBold,
 } from "@expo-google-fonts/dm-sans";
 import {
   PlusJakartaSans_600SemiBold,
@@ -26,7 +25,6 @@ export default function RootLayout() {
     PlusJakartaSans_800ExtraBold,
     DMSans_400Regular,
     DMSans_500Medium,
-    DMSans_600SemiBold,
   });
 
   useEffect(() => {

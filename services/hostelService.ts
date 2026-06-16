@@ -1,4 +1,4 @@
-import { hostels } from "@/data/hostels";
+import { getHostelsByUniversity, hostels } from "@/data/hostels";
 import { Hostel } from "@/models/hostel";
 
 const favorites = new Set<string>();
@@ -15,7 +15,10 @@ export const hostelService = {
     if (!query.trim()) return hostels;
     const q = query.toLowerCase();
     return hostels.filter(
-      (h) => h.name.toLowerCase().includes(q) || h.location.toLowerCase().includes(q)
+      (h) =>
+        h.name.toLowerCase().includes(q) ||
+        h.location.toLowerCase().includes(q) ||
+        h.universityName.toLowerCase().includes(q)
     );
   },
 
@@ -32,6 +35,11 @@ export const hostelService = {
   async getBudgetHostels(maxPrice = 6500): Promise<Hostel[]> {
     await delay(500);
     return hostels.filter((h) => h.price <= maxPrice);
+  },
+
+  async getHostelsByUniversity(universityId: number): Promise<Hostel[]> {
+    await delay(300);
+    return getHostelsByUniversity(universityId);
   },
 
   addToFavorites(hostelId: string) {
@@ -64,6 +72,6 @@ export const hostelService = {
   },
 };
 
-// Seed default favorites matching Figma prototype
-hostelService.addToFavorites("1");
-hostelService.addToFavorites("3");
+// Seed default favorites (UoN + JKUAT featured hostels)
+hostelService.addToFavorites("10");
+hostelService.addToFavorites("140");
