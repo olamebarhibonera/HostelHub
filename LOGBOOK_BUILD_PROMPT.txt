@@ -1,0 +1,230 @@
+You are an experienced React Native developer, technical writer, and document formatter.
+
+Your task is to BUILD a complete university Mobile Application Development logbook as a Microsoft Word document (.docx) for the HostelHub project. The logbook must contain real embedded screenshots from the project — not placeholders.
+
+============================================================
+FINAL REQUIREMENT (MANDATORY)
+============================================================
+
+1. Deliverable format: ONE .docx file named HostelHub_Logbook.docx
+2. Every screenshot label listed under "Practical Activities Undertaken" MUST have a corresponding image embedded directly below that label in the Word document.
+3. Screenshots must be captured from the actual HostelHub app (Android emulator, Expo Go, or device) or from the development environment (VS Code, terminal, Android Studio) where relevant.
+4. Do NOT use markdown. Do NOT output plain text only. The final file must open correctly in Microsoft Word.
+5. Image size: each screenshot should be readable (roughly 4–5 inches wide), with a caption matching the screenshot label exactly.
+
+============================================================
+COVER PAGE (before Week 1)
+============================================================
+
+MOBILE APPLICATION DEVELOPMENT
+
+Student Name: OLAME BARHIBONERA EBEN-EZER
+Registration Number: BIT/2023/66873
+School: SCHOOL OF COMPUTING AND INFORMATICS
+Year: FOURTH YEAR
+Semester: EIGHTH SEMESTER
+Supervisor: NYORO MICHAEL
+Supervisor Contact: 0110411706
+
+Project Name: HostelHub
+Platform: React Native (Expo SDK 54)
+Project Description: A mobile application that helps university students in Nairobi and East Africa discover, compare, and book campus hostels.
+
+============================================================
+WEEKLY STRUCTURE (repeat for Weeks 1–8)
+============================================================
+
+Each week must contain ONLY these four sections — no other headings:
+
+Week X
+
+Practical Activities Undertaken
+[screenshot label]
+[embedded screenshot image]
+[screenshot label]
+[embedded screenshot image]
+...
+
+Screenshots/Evidence Attached (Yes/No)
+Yes
+
+Tools/Software Used
+[comma-separated or line-separated tool list for that week only]
+
+Personal Reflection
+[ONE reflection, maximum 50 words, natural university-student tone]
+
+RULES FOR PRACTICAL ACTIVITIES:
+- DO NOT write paragraphs explaining what was done.
+- ONLY screenshot labels followed immediately by the matching screenshot image.
+- Do not repeat screenshot labels across weeks.
+- Do not repeat reflections across weeks.
+- Do not list tools unless they were actually used that week.
+
+============================================================
+ABOUT THE PROJECT (use this for screenshot capture)
+============================================================
+
+Project: HostelHub
+Repo path: HostelHub (React Native + Expo)
+
+Tech stack (only list what is actually used):
+- React Native, Expo SDK 54, Expo Router, TypeScript
+- NativeWind (Tailwind CSS), Lucide React Native, Expo Google Fonts
+- React Context (AppContext), mock services (authService, hostelService, bookingService)
+- Static data in data/ (hostels, universities, locations)
+- VS Code, Git, GitHub, Android Studio, Expo Go, Node.js, npm
+
+Do NOT claim these are used (they are NOT in the codebase):
+- AsyncStorage, Axios, Firebase, REST API
+
+Demo login: student@uon.ac.ke / password123 (any email with @, password 6+ chars)
+
+Key screens to capture:
+- Splash (app/index.tsx)
+- Login, Register, Forgot Password (app/(auth)/)
+- Home with search and categories (app/(tabs)/home.tsx)
+- Location picker modal
+- Hostel details (app/hostel/[id].tsx)
+- Booking form and confirmation (app/booking/[id].tsx)
+- Saved/Favorites tab (app/(tabs)/favorites.tsx)
+- Bookings tab (app/(tabs)/bookings.tsx)
+- Profile tab (app/(tabs)/profile.tsx)
+- VS Code project structure, terminal running expo start, package.json, services/, components/
+
+============================================================
+SCREENSHOT PLAN BY WEEK
+============================================================
+
+WEEK 1 — Installation and setup
+Screenshot 1: Installing Node.js
+Screenshot 2: Verifying Node.js and npm in terminal
+Screenshot 3: Installing Android Studio
+Screenshot 4: Creating HostelHub Expo project
+Screenshot 5: Running npx expo start for the first time
+Screenshot 6: HostelHub splash screen on emulator
+
+Tools: Node.js, npm, Expo, Android Studio, VS Code, Expo Go
+
+WEEK 2 — Environment configuration
+Screenshot 7: Configuring app.json (app name, splash, icons)
+Screenshot 8: Setting up TypeScript (tsconfig.json)
+Screenshot 9: Installing and configuring NativeWind (tailwind.config.js, global.css)
+Screenshot 10: Configuring Expo Router folder structure (app/ directory)
+Screenshot 11: Loading custom fonts (Plus Jakarta Sans, DM Sans)
+Screenshot 12: HostelHub app running with styled splash screen
+
+Tools: TypeScript, NativeWind, Tailwind CSS, Expo Router, Expo Google Fonts
+
+WEEK 3 — UI development
+Screenshot 13: Home screen header with greeting and location
+Screenshot 14: Hostel search bar and category filters
+Screenshot 15: Featured hostels horizontal scroll (HostelCard component)
+Screenshot 16: Location picker showing Nairobi universities
+Screenshot 17: Hostel details screen with image and amenities
+Screenshot 18: VS Code showing HostelCard.tsx and LocationPicker.tsx
+
+Tools: React Native, NativeWind, Lucide React Native, VS Code, Figma
+
+WEEK 4 — Forms, events and navigation
+Screenshot 19: Login screen with email and password fields
+Screenshot 20: Register screen with validation fields
+Screenshot 21: Forgot password screen
+Screenshot 22: Successful login navigating to home
+Screenshot 23: Bottom tab navigation (Home, Saved, Bookings, Profile)
+Screenshot 24: Stack navigation to hostel details screen
+
+Tools: Expo Router, React Native, TypeScript, VS Code
+
+WEEK 5 — Local data and state management
+Screenshot 25: data/hostels.ts static hostel data in VS Code
+Screenshot 26: data/universities.ts and data/locations.ts
+Screenshot 27: AppContext.tsx showing user, favorites, and location state
+Screenshot 28: Toggling favorite heart icon on a hostel card
+Screenshot 29: Saved tab showing favorited hostels
+Screenshot 30: Filtering hostels by Budget category on home screen
+
+Tools: TypeScript, React Context, VS Code
+
+WEEK 6 — Service layer integration
+Screenshot 31: authService.ts login and register logic in VS Code
+Screenshot 32: hostelService.ts search and favorites methods
+Screenshot 33: bookingService.ts create booking logic
+Screenshot 34: Login form with loading indicator during auth
+Screenshot 35: Booking form with room type and duration selection
+Screenshot 36: Booking confirmation screen with reference number
+
+Tools: TypeScript, VS Code, React Native, Expo
+
+WEEK 7 — Architecture and reusable components
+Screenshot 37: Project folder structure (app, components, contexts, data, models, services)
+Screenshot 38: models/hostel.ts and models/booking.ts TypeScript interfaces
+Screenshot 39: HostelLogo.tsx reusable component
+Screenshot 40: Bookings tab showing active and completed bookings
+Screenshot 41: Profile screen with user details and logout
+Screenshot 42: README.md project documentation in VS Code
+
+Tools: TypeScript, VS Code, Git, GitHub
+
+WEEK 8 — Project planning and progress review
+Screenshot 43: Git commit history for HostelHub on GitHub
+Screenshot 44: Full home screen final UI on emulator
+Screenshot 45: Complete booking flow from hostel details to confirmation
+Screenshot 46: All four tabs visible in final app
+Screenshot 47: Terminal showing successful expo start with no errors
+Screenshot 48: Final project overview in VS Code explorer
+
+Tools: Git, GitHub, VS Code, Expo, Android Studio, Expo Go
+
+============================================================
+HOW TO BUILD THE .DOCX
+============================================================
+
+Option A — Python (recommended for automation):
+1. Capture all screenshots and save to a folder: screenshots/week1/, screenshots/week2/, etc.
+2. Use python-docx to create the document:
+   - Add cover page text
+   - For each week: add heading, each label as bold text, add_picture() below each label
+   - Add "Yes" for evidence, tools list, and reflection
+3. Save as HostelHub_Logbook.docx
+
+Option B — Microsoft Word manually:
+1. Create new Word document
+2. Add cover page content
+3. For each week, type the four sections
+4. Under each screenshot label, Insert > Pictures > select the matching PNG/JPG
+5. Save as HostelHub_Logbook.docx
+
+Screenshot capture commands (run app first):
+  cd HostelHub
+  npm install
+  npx expo start -c
+  Press 'a' for Android emulator, then capture screens with emulator screenshot tool or Win+Shift+S
+
+============================================================
+PERSONAL REFLECTION GUIDELINES
+============================================================
+
+- Maximum 50 words per week
+- First person, natural student voice
+- Mention one challenge, one learning, or one satisfaction
+- Do not repeat wording across weeks
+- Examples of tone (do not copy verbatim — write unique each week):
+  Week 1: "Setting up Expo for the first time was confusing, but once the emulator connected I felt confident moving forward."
+  Week 6: "Writing mock services helped me understand how real APIs will work later without needing a backend yet."
+
+============================================================
+OUTPUT CHECKLIST BEFORE SUBMISSION
+============================================================
+
+[ ] File is .docx (not .md, .txt, or .pdf)
+[ ] Cover page has correct student and supervisor details
+[ ] 8 weeks present, each with exactly 4 sections
+[ ] 48 screenshots total, each embedded under its label
+[ ] Screenshots/Evidence Attached is "Yes" for every week
+[ ] No paragraph explanations under Practical Activities
+[ ] Tools listed are accurate and not repeated unnecessarily
+[ ] Reflections are unique and under 50 words each
+[ ] Document opens and images display correctly in Microsoft Word
+
+Begin by capturing the screenshots from the running HostelHub app, then assemble HostelHub_Logbook.docx following this structure exactly.
